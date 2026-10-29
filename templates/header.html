@@ -1,0 +1,29 @@
+<!-- HEADER PADRÃO (usado em todas as páginas depois do login) -->
+{# Antes do include, a página define a variável pagina_ativa (ex: dashboard, perfil, taxas...) #}
+<header class="cabecalho-padrao">
+
+    <!-- Logo: símbolo + nome escrito -->
+    <a href="{{ url_for('dashboard') }}" class="cabecalho-logo">
+        <img src="{{ url_for('static', filename='uploads/LogoSoloCrediMais.png') }}" alt="Logo CredMais" class="cabecalho-simbolo">
+        <span class="cabecalho-texto">
+            <span class="cabecalho-nome"><span class="nome-azul">Cred</span><span class="nome-verde">Mais</span></span>
+            <span class="cabecalho-slogan">Gestão de crédito para<br>pequenos negócios</span>
+        </span>
+    </a>
+
+    <!-- Menu -->
+    <nav class="cabecalho-menu">
+        <a href="{{ url_for('dashboard') }}" class="{% if pagina_ativa == 'dashboard' %}ativo{% endif %}">Dashboard</a>
+        <a href="{{ url_for('perfil') }}" class="{% if pagina_ativa == 'perfil' %}ativo{% endif %}">Perfil</a>
+
+        <!-- Taxas só aparece para adm -->
+        {% if eh_admin %}
+        <a href="{{ url_for('listar_taxas') }}" class="{% if pagina_ativa == 'taxas' %}ativo{% endif %}">Taxas</a>
+        {% endif %}
+
+        <a href="#" class="{% if pagina_ativa == 'simulacao' %}ativo{% endif %}">Simulação</a>
+        <a href="{{ url_for('historico_emprestimos') }}" class="{% if pagina_ativa == 'emprestimos' %}ativo{% endif %}">Empréstimos</a>
+        <a href="{{ url_for('movimentacoes') }}" class="{% if pagina_ativa == 'movimentacoes' %}ativo{% endif %}">Movimentações</a>
+    </nav>
+
+</header>

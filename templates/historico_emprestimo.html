@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> Historico - CredMais</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='historico.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    </head>
+    <body>
+
+    {% set pagina_ativa = 'emprestimos' %}
+    {% include 'header.html' %}
+        <main class="pagina">
+
+            <section>
+                 <div class="titulo">
+                    <h1>Histórico de Empréstimos</h1>
+                </div>
+
+                <div>
+                    <a href="{{ url_for('simular') }}" class="botao_simular_emprestimo">Simular novo empréstimo </a>
+                </div>
+
+                <div>
+                    <a href="" class="voltar">Voltar</a>
+                </div>
+
+                <div>
+                    <a href="" class="baixar_pdf">Baixar PDF</a>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
